@@ -102,10 +102,10 @@ export default function Hero() {
                 <span className="inline-block py-1 px-3 border border-gold/30 rounded-full text-gold text-xs uppercase tracking-[0.2em] mb-4 backdrop-blur-sm">
                     Est. 2024
                 </span>
-                <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-cream leading-none tracking-tight drop-shadow-2xl">
+                <h1 className="font-display text-5xl md:text-8xl lg:text-9xl text-cream leading-none tracking-tight drop-shadow-2xl">
                     Taste the <span className="text-terracotta italic">Warmth</span>
                 </h1>
-                <p className="font-body text-lg md:text-2xl text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">
+                <p className="font-body text-base md:text-2xl text-stone-200 max-w-2xl mx-auto font-light leading-relaxed px-4">
                     A culinary sanctuary where every meal tells a story of tradition, spice, and soul.
                 </p>
                 <div className="flex flex-col md:flex-row gap-6 justify-center pt-8">

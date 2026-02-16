@@ -50,11 +50,11 @@ export default function Navbar() {
         <header
             ref={navRef}
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 transition-all duration-500 will-change-transform",
+                "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 transition-all duration-500",
                 isScrolled ? "bg-cream/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
             )}
         >
-            <Link href="/" className={cn("font-display text-3xl font-bold z-50 relative transition-colors", logoColorClass)}>
+            <Link href="/" className={cn("font-display text-3xl font-bold z-[70] relative transition-colors", isMobileMenuOpen ? "text-terracotta" : logoColorClass)}>
                 Cafe Ara
             </Link>
 
@@ -82,14 +82,14 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile Toggle */}
-            <button onClick={toggleMobileMenu} className={cn("md:hidden z-50 transition-colors", isMobileMenuOpen ? "text-terracotta" : logoColorClass)}>
+            <button onClick={toggleMobileMenu} className={cn("md:hidden z-[70] transition-colors", isMobileMenuOpen ? "text-terracotta" : logoColorClass)}>
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 
             {/* Mobile Menu Overlay */}
             <div
                 className={cn(
-                    "fixed inset-0 bg-cream flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out md:hidden",
+                    "fixed inset-0 bg-[#FAF5EE] z-[60] flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out md:hidden",
                     isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                 )}
             >
