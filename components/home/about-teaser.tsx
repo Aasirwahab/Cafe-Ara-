@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -79,15 +80,18 @@ export default function AboutTeaser() {
 
                 {/* Image Side */}
                 <div className="relative order-1 md:order-2">
-                    <div ref={imageRef} className="aspect-[4/5] bg-stone-200 w-full relative overflow-hidden">
-                        {/* Placeholder for Image */}
-                        <div className="absolute inset-0 bg-terracotta/10" />
-                        <div className="absolute inset-0 flex items-center justify-center text-terracotta/20 font-display text-4xl">
-                            [Atmosphere Image]
-                        </div>
+                    <div ref={imageRef} className="aspect-[4/5] w-full relative overflow-hidden rounded-lg shadow-2xl">
+                        <Image
+                            src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2670&auto=format&fit=crop"
+                            alt="Spices and clay pots"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-terracotta/10 mix-blend-multiply" />
                     </div>
                     {/* Decorative Element */}
-                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-golden-wheat/20 rounded-full blur-3xl z-[-1]" />
+                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gold/20 rounded-full blur-3xl z-[-1]" />
                 </div>
             </div>
         </section>

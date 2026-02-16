@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/button";
 
@@ -32,9 +33,21 @@ export default function EventsTeaser() {
                 </div>
 
                 <div className="relative h-[400px] w-full">
-                    <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-stone-700/50 rounded-lg transform rotate-3" />
-                    <div className="absolute bottom-0 left-4 w-3/4 h-3/4 bg-stone-600 rounded-lg transform -rotate-2 border-4 border-forest shadow-2xl flex items-center justify-center text-white/20 font-display text-3xl">
-                        [Party Image]
+                    <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-stone-700/50 rounded-lg transform rotate-3 overflow-hidden">
+                        <Image
+                            src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=2670&auto=format&fit=crop"
+                            alt="Celebration details"
+                            fill
+                            className="object-cover opacity-60 mix-blend-overlay hover:opacity-80 transition-opacity duration-700"
+                        />
+                    </div>
+                    <div className="absolute bottom-0 left-4 w-3/4 h-3/4 bg-stone-600 rounded-lg transform -rotate-2 border-4 border-forest shadow-2xl overflow-hidden">
+                        <Image
+                            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2669&auto=format&fit=crop"
+                            alt="Group dining celebration"
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-700"
+                        />
                     </div>
                 </div>
             </div>

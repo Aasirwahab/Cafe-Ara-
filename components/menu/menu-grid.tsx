@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = ["All", "Sri Lankan", "Indian", "Noodles", "Beverages", "Desserts"];
 
 const menuItems = [
-    { id: 1, name: "Jaffna Crab Curry", category: "Sri Lankan", price: "RS. 3800", desc: "Wild-caught lagoon crab, roasted spices, murunga leaves.", spice: 3 },
-    { id: 2, name: "Mutton Biryani", category: "Indian", price: "RS. 2600", desc: "Goat meat, aromatic basmati, saffron, mint raita.", spice: 2 },
-    { id: 3, name: "Black Mutton Curry", category: "Sri Lankan", price: "RS. 2400", desc: "Slow-cooked mutton in roasted coconut paste.", spice: 3 },
-    { id: 4, name: "Butter Chicken", category: "Indian", price: "RS. 1800", desc: "Tandoori chicken, creamy tomato gravy, fenugreek.", spice: 1 },
-    { id: 5, name: "Seafood Kothu", category: "Sri Lankan", price: "RS. 1900", desc: "Chopped roti, mixed seafood, egg, vegetables, gravy.", spice: 2 },
-    { id: 6, name: "Garlic Prawn Noodles", category: "Noodles", price: "RS. 2100", desc: "Hand-pulled noodles, garlic butter prawns, chilli flakes.", spice: 2 },
-    { id: 7, name: "Mango Lassi", category: "Beverages", price: "RS. 800", desc: "Fresh alphonso mango, yogurt, cardamom.", spice: 0 },
-    { id: 8, name: "Watalappam", category: "Desserts", price: "RS. 600", desc: "Coconut custard, jaggery, cashew nuts, spices.", spice: 0 },
+    { id: 1, name: "Jaffna Crab Curry", category: "Sri Lankan", price: "RS. 3800", desc: "Wild-caught lagoon crab, roasted spices, murunga leaves.", spice: 3, image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=2671&auto=format&fit=crop" },
+    { id: 2, name: "Mutton Biryani", category: "Indian", price: "RS. 2600", desc: "Goat meat, aromatic basmati, saffron, mint raita.", spice: 2, image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=2574&auto=format&fit=crop" },
+    { id: 3, name: "Black Mutton Curry", category: "Sri Lankan", price: "RS. 2400", desc: "Slow-cooked mutton in roasted coconut paste.", spice: 3, image: "https://images.unsplash.com/photo-1545247181-516773cae754?q=80&w=2670&auto=format&fit=crop" },
+    { id: 4, name: "Butter Chicken", category: "Indian", price: "RS. 1800", desc: "Tandoori chicken, creamy tomato gravy, fenugreek.", spice: 1, image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=2674&auto=format&fit=crop" },
+    { id: 5, name: "Seafood Kothu", category: "Sri Lankan", price: "RS. 1900", desc: "Chopped roti, mixed seafood, egg, vegetables, gravy.", spice: 2, image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=2672&auto=format&fit=crop" },
+    { id: 6, name: "Garlic Prawn Noodles", category: "Noodles", price: "RS. 2100", desc: "Hand-pulled noodles, garlic butter prawns, chilli flakes.", spice: 2, image: "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=2670&auto=format&fit=crop" },
+    { id: 7, name: "Mango Lassi", category: "Beverages", price: "RS. 800", desc: "Fresh alphonso mango, yogurt, cardamom.", spice: 0, image: "https://images.unsplash.com/photo-1606277083073-7c372b6b0266?q=80&w=2574&auto=format&fit=crop" },
+    { id: 8, name: "Watalappam", category: "Desserts", price: "RS. 600", desc: "Coconut custard, jaggery, cashew nuts, spices.", spice: 0, image: "https://images.unsplash.com/photo-1616031036688-662580795493?q=80&w=2670&auto=format&fit=crop" },
 ];
 
 export default function MenuGrid() {
@@ -80,6 +80,11 @@ export default function MenuGrid() {
                     <div key={item.id} className="group flex flex-col sm:flex-row gap-6 items-start p-6 rounded-2xl hover:bg-white transition-colors duration-300 border border-transparent hover:border-stone-100 hover:shadow-sm">
                         {/* Image Placeholder */}
                         <div className="w-full sm:w-32 h-32 bg-stone-200 rounded-lg shrink-0 overflow-hidden relative self-start ring-1 ring-stone-900/5">
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
                             <div className="absolute inset-0 bg-forest/5 group-hover:bg-transparent transition-colors" />
                         </div>
 

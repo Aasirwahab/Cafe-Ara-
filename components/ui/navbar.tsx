@@ -21,7 +21,7 @@ const navLinks = [
 
 export default function Navbar() {
     const navRef = useRef<HTMLElement>(null);
-    const logoRef = useRef<HTMLAnchorElement>(null);
+    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
@@ -31,19 +31,8 @@ export default function Navbar() {
                 start: "top -80",
                 end: 99999,
                 onToggle: (self) => {
-                    const classes = "bg-cream/80 backdrop-blur-md shadow-sm py-2".split(" ");
-                    if (self.isActive) {
-                        navRef.current?.classList.add(...classes);
-                    } else {
-                        navRef.current?.classList.remove(...classes);
-                    }
+                    setIsScrolled(self.isActive);
                 },
-                onUpdate: (self) => {
-                    if (self.direction === 1 && self.progress > 0.05) {
-                        // Scrolling down - hide or compact? specific request says "solid on scroll"
-                        // The toggleClass above handles the visual change.
-                    }
-                }
             });
         });
 
@@ -52,12 +41,20 @@ export default function Navbar() {
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+    // Determine text color based on scroll state or specific pages (like Gallery)
+    const isDarkText = isScrolled || pathname === "/gallery";
+    const textColorClass = isDarkText ? "text-charcoal" : "text-offwhite";
+    const logoColorClass = isDarkText ? "text-terracotta" : "text-offwhite";
+
     return (
         <header
             ref={navRef}
-            className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 transition-all duration-500 will-change-transform"
+            className={cn(
+                "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 transition-all duration-500 will-change-transform",
+                isScrolled ? "bg-cream/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+            )}
         >
-            <Link href="/" ref={logoRef} className="font-display text-3xl font-bold text-terracotta z-50 relative">
+            <Link href="/" className={cn("font-display text-3xl font-bold z-50 relative transition-colors", logoColorClass)}>
                 Cafe Ara
             </Link>
 
@@ -69,19 +66,23 @@ export default function Navbar() {
                         href={link.href}
                         className={cn(
                             "font-subheading text-sm uppercase tracking-widest hover:text-terracotta transition-colors",
-                            pathname === link.href ? "text-terracotta border-b-2 border-terracotta" : "text-charcoal"
+                            pathname === link.href
+                                ? "text-terracotta border-b-2 border-terracotta"
+                                : textColorClass
                         )}
                     >
                         {link.name}
                     </Link>
                 ))}
                 <Link href="/reservations">
-                    <Button variant="primary">Reserve</Button>
+                    <Button variant={isDarkText ? "primary" : "outline"} className={isDarkText ? "" : "text-offwhite border-offwhite hover:bg-offwhite hover:text-charcoal"}>
+                        Reserve
+                    </Button>
                 </Link>
             </nav>
 
             {/* Mobile Toggle */}
-            <button onClick={toggleMobileMenu} className="md:hidden z-50 text-terracotta">
+            <button onClick={toggleMobileMenu} className={cn("md:hidden z-50 transition-colors", isMobileMenuOpen ? "text-terracotta" : logoColorClass)}>
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 

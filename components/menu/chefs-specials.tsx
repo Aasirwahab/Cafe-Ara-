@@ -12,13 +12,13 @@ const specials = [
         name: "Lobster Kothu",
         desc: "A decadent twist on the street food classic. Fresh lagoon lobster wok-tossed with godamba roti, vegetables, and our signature spice blend.",
         price: "RS. 4500",
-        image: "[Lobster Image]"
+        image: "https://images.unsplash.com/photo-1599003037886-f88506183300?q=80&w=2574&auto=format&fit=crop"
     },
     {
         name: "Bamboo Biryani",
         desc: "Steamed inside natural bamboo logs to infuse an earthy aroma. Layered with tender mutton and aromatic spices.",
         price: "RS. 3200",
-        image: "[Biryani Image]"
+        image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=2574&auto=format&fit=crop"
     }
 ];
 
@@ -58,9 +58,11 @@ export default function ChefsSpecials() {
                 {specials.map((item, i) => (
                     <div key={i} className="special-card flex flex-col md:flex-row gap-6 bg-stone-800/50 p-6 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors group">
                         <div className="w-full md:w-48 h-48 bg-stone-700 rounded-lg shrink-0 overflow-hidden relative">
-                            <div className="absolute inset-0 flex items-center justify-center text-white/20 font-display text-lg">
-                                {item.image}
-                            </div>
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
                         </div>
                         <div className="flex flex-col justify-center">
                             <h3 className="font-heading text-2xl text-cream group-hover:text-gold transition-colors">{item.name}</h3>

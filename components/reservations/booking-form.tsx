@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Button from "@/components/ui/button";
-import { Calendar, User, Clock, Mail, Phone, MessageSquare } from "lucide-react";
 
 export default function BookingForm() {
     const [formData, setFormData] = useState({
@@ -27,89 +26,79 @@ export default function BookingForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 md:p-12 rounded-2xl shadow-xl shadow-stone-200/50">
-            <div className="text-center mb-8">
-                <h3 className="font-heading text-2xl text-charcoal mb-2">Secure Your Table</h3>
-                <p className="font-body text-sm text-stone-muted">Bookings are essential for dinner service.</p>
+        <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-2 text-center md:text-left">
+                <h3 className="font-display text-3xl text-charcoal">Your Details</h3>
+                <p className="font-body text-sm text-stone-500">Please provide your contact information so we can confirm your reservation.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
                 {/* Name */}
-                <div className="relative group">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <User size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2">
                     <input
                         type="text"
                         name="name"
+                        id="name"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors"
+                        placeholder=" "
                         required
-                        placeholder="Full Name"
-                        aria-label="Full Name"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
+                    <label htmlFor="name" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full Name</label>
                 </div>
 
                 {/* Phone */}
-                <div className="relative group">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <Phone size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2">
                     <input
                         type="tel"
                         name="phone"
+                        id="phone"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors"
+                        placeholder=" "
                         required
-                        placeholder="Phone Number"
-                        aria-label="Phone Number"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
+                    <label htmlFor="phone" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone Number</label>
                 </div>
 
                 {/* Email */}
-                <div className="relative group md:col-span-2">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <Mail size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2 md:col-span-2">
                     <input
                         type="email"
                         name="email"
+                        id="email"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors"
+                        placeholder=" "
                         required
-                        placeholder="Email Address"
-                        aria-label="Email Address"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
+                    <label htmlFor="email" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email Address</label>
                 </div>
 
                 {/* Date */}
-                <div className="relative group">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <Calendar size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2">
                     <input
                         type="date"
                         name="date"
+                        id="date"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors min-h-[50px]"
+                        placeholder=" "
                         required
-                        aria-label="Date of Reservation"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none" // appearance-none to normalize
                         onChange={handleChange}
                     />
+                    <label htmlFor="date" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date</label>
                 </div>
 
                 {/* Time */}
-                <div className="relative group">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <Clock size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2">
                     <select
                         name="time"
+                        id="time"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors"
                         required
-                        aria-label="Time of Reservation"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none"
                         onChange={handleChange}
                     >
-                        <option value="" disabled selected>Select Time</option>
+                        <option value="" disabled selected className="text-stone-400"></option>
                         <option value="18:00">6:00 PM</option>
                         <option value="18:30">6:30 PM</option>
                         <option value="19:00">7:00 PM</option>
@@ -118,18 +107,16 @@ export default function BookingForm() {
                         <option value="20:30">8:30 PM</option>
                         <option value="21:00">9:00 PM</option>
                     </select>
+                    <label htmlFor="time" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Time</label>
                 </div>
 
                 {/* Guests */}
-                <div className="relative group md:col-span-2">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <User size={18} />
-                    </div>
+                <div className="group relative z-0 w-full mb-2 md:col-span-2">
                     <select
                         name="guests"
+                        id="guests"
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors"
                         required
-                        aria-label="Number of Guests"
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none"
                         onChange={handleChange}
                         value={formData.guests}
                     >
@@ -137,25 +124,27 @@ export default function BookingForm() {
                             <option key={num} value={num}>{num} {num === 1 ? 'Guest' : 'Guests'}</option>
                         ))}
                     </select>
+                    <label htmlFor="guests" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Party Size</label>
                 </div>
 
-                {/* Texture/Occasion */}
-                <div className="relative group md:col-span-2">
-                    <div className="absolute left-4 top-3.5 text-stone-400 group-focus-within:text-terracotta transition-colors">
-                        <MessageSquare size={18} />
-                    </div>
+                {/* Occasion */}
+                <div className="group relative z-0 w-full mb-2 md:col-span-2">
                     <textarea
                         name="occasion"
-                        placeholder="Special Request (optional)"
-                        rows={3}
-                        className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 resize-none"
+                        id="occasion"
+                        rows={2}
+                        className="block py-2.5 px-0 w-full text-lg font-body text-charcoal bg-transparent border-0 border-b-2 border-stone-200 appearance-none focus:outline-none focus:ring-0 focus:border-terracotta peer transition-colors resize-none"
+                        placeholder=" "
                         onChange={handleChange}
                     />
+                    <label htmlFor="occasion" className="peer-focus:font-heading absolute text-sm text-stone-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-terracotta peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Special Requests (Allergies, Occasions)</label>
                 </div>
             </div>
 
-            <div className="pt-4 flex justify-center">
-                <Button type="submit" variant="primary" className="w-full md:w-auto">Confirm Request</Button>
+            <div className="pt-8 flex justify-end">
+                <Button type="submit" variant="primary" className="w-full md:w-auto px-8 py-4 text-sm font-subheading tracking-widest uppercase">
+                    Confirm Reservation
+                </Button>
             </div>
         </form>
     );
