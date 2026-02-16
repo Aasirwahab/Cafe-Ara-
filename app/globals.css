@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-terracotta: #C4724E;
+  --color-terracotta-light: #D4956F;
+  --color-terracotta-dark: #8B4A2E;
+  
+  --color-forest: #2C4A3E;
+  --color-forest-light: #3D6B5A;
+  
+  --color-gold: #D4A86A;
+  --color-gold-light: #E8CFA0;
+  
+  --color-cream: #FAF5EE;
+  --color-offwhite: #F5EDE3;
+  
+  --color-stone-muted: #9B8E82;
+  --color-charcoal: #2D2A26;
+  --color-body: #3D3630;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Fonts */
+  --font-display: var(--font-cormorant), serif;
+  --font-heading: var(--font-playfair), serif;
+  --font-subheading: var(--font-josefin), sans-serif;
+  --font-body: var(--font-lato), sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Animations */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s ease-out forwards;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
 }
 
+/* Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
