@@ -44,6 +44,7 @@ export default function BookingForm() {
                         name="name"
                         required
                         placeholder="Full Name"
+                        aria-label="Full Name"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
@@ -59,6 +60,7 @@ export default function BookingForm() {
                         name="phone"
                         required
                         placeholder="Phone Number"
+                        aria-label="Phone Number"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
@@ -74,6 +76,7 @@ export default function BookingForm() {
                         name="email"
                         required
                         placeholder="Email Address"
+                        aria-label="Email Address"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400"
                         onChange={handleChange}
                     />
@@ -88,6 +91,7 @@ export default function BookingForm() {
                         type="date"
                         name="date"
                         required
+                        aria-label="Date of Reservation"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none" // appearance-none to normalize
                         onChange={handleChange}
                     />
@@ -101,6 +105,7 @@ export default function BookingForm() {
                     <select
                         name="time"
                         required
+                        aria-label="Time of Reservation"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none"
                         onChange={handleChange}
                     >
@@ -123,6 +128,7 @@ export default function BookingForm() {
                     <select
                         name="guests"
                         required
+                        aria-label="Number of Guests"
                         className="w-full pl-12 pr-4 py-3 bg-offwhite rounded-lg border border-transparent focus:border-terracotta focus:bg-white focus:ring-0 transition-all outline-none font-body text-charcoal placeholder:text-stone-400 appearance-none"
                         onChange={handleChange}
                         value={formData.guests}

@@ -1,4 +1,5 @@
-import React from "react";
+import Team from "@/components/about/team";
+import Community from "@/components/about/community";
 import Story from "@/components/about/story";
 
 export const metadata = {
@@ -8,11 +9,15 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-offwhite pt-32">
+        <main className="min-h-screen bg-offwhite pt-32">
             <div className="text-center mb-16 px-6">
-                <h1 className="font-display text-5xl md:text-7xl text-terracotta">Our Story</h1>
+                <span className="font-subheading text-terracotta uppercase tracking-widest text-sm">Our Roots</span>
+                <h1 className="font-display text-5xl md:text-7xl text-charcoal">Our Story</h1>
             </div>
             <Story />
+
+            <Team />
+            <Community />
 
             {/* Philosophy Section */}
             <section className="bg-terracotta text-cream py-24 px-6 text-center mt-12">
@@ -24,6 +29,6 @@ export default function AboutPage() {
                     </p>
                 </div>
             </section>
-        </div>
+        </main>
     );
 }

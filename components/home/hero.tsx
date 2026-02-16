@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Button from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -70,10 +71,14 @@ export default function Hero() {
                     A culinary sanctuary where every meal tells a story.
                 </p>
                 <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
-                    <Button variant="primary">Reserve a Table</Button>
-                    <Button variant="outline" className="text-cream border-cream hover:bg-cream hover:text-charcoal">
-                        Explore Menu
-                    </Button>
+                    <Link href="/reservations">
+                        <Button variant="primary">Reserve a Table</Button>
+                    </Link>
+                    <Link href="/menu">
+                        <Button variant="outline" className="text-cream border-cream hover:bg-cream hover:text-charcoal transition-colors">
+                            Explore Menu
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

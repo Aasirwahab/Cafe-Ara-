@@ -1,4 +1,5 @@
-import React from "react";
+import ChefsSpecials from "@/components/menu/chefs-specials";
+import Beverages from "@/components/menu/beverages";
 import MenuGrid from "@/components/menu/menu-grid";
 
 export const metadata = {
@@ -8,15 +9,22 @@ export const metadata = {
 
 export default function MenuPage() {
     return (
-        <div className="bg-cream min-h-screen pt-32 pb-24">
+        <main className="bg-cream min-h-screen pt-32 pb-24">
             <div className="max-w-7xl mx-auto px-6 text-center mb-16 space-y-4">
-                <h1 className="font-display text-5xl md:text-6xl text-terracotta">Our Menu</h1>
+                <span className="font-subheading text-terracotta uppercase tracking-widest text-sm">Culinary Journey</span>
+                <h1 className="font-display text-5xl md:text-6xl text-charcoal">Our Menu</h1>
                 <p className="font-body text-lg text-stone-muted max-w-2xl mx-auto">
                     A curated selection of traditional flavors, prepared with patience and passion.
-                    Please inform our staff of any allergies.
                 </p>
             </div>
-            <MenuGrid />
-        </div>
+
+            <ChefsSpecials />
+
+            <div className="py-20">
+                <MenuGrid />
+            </div>
+
+            <Beverages />
+        </main>
     );
 }

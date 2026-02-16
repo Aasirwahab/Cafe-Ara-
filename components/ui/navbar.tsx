@@ -30,9 +30,13 @@ export default function Navbar() {
             ScrollTrigger.create({
                 start: "top -80",
                 end: 99999,
-                toggleClass: {
-                    className: "bg-cream/80 backdrop-blur-md shadow-sm py-2",
-                    targets: navRef.current,
+                onToggle: (self) => {
+                    const classes = "bg-cream/80 backdrop-blur-md shadow-sm py-2".split(" ");
+                    if (self.isActive) {
+                        navRef.current?.classList.add(...classes);
+                    } else {
+                        navRef.current?.classList.remove(...classes);
+                    }
                 },
                 onUpdate: (self) => {
                     if (self.direction === 1 && self.progress > 0.05) {
@@ -71,7 +75,9 @@ export default function Navbar() {
                         {link.name}
                     </Link>
                 ))}
-                <Button variant="primary">Reserve</Button>
+                <Link href="/reservations">
+                    <Button variant="primary">Reserve</Button>
+                </Link>
             </nav>
 
             {/* Mobile Toggle */}
@@ -96,7 +102,9 @@ export default function Navbar() {
                         {link.name}
                     </Link>
                 ))}
-                <Button variant="primary" onClick={() => setIsMobileMenuOpen(false)}>Reserve a Table</Button>
+                <Link href="/reservations" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="primary">Reserve a Table</Button>
+                </Link>
             </div>
         </header>
     );
